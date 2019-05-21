@@ -9,18 +9,20 @@ public class Ball {
     int ya = 2;
     private Player myPlayer;
 
-    public Ball(Player player){
+    public Ball(Player player) {
         myPlayer = player;
     }
 
     public void paint(Graphics2D g) {
         g.fillOval(x,y,20,20);
     }
+
     public void move() {
         checkCollisions();
         x = x + xa;
         y = y + ya;
     }
+
     public void checkCollisions(){
         if(x == 680 || x == 0){
             xa = -xa;

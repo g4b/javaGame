@@ -14,13 +14,14 @@ public class Player {
     }
 
     public void move() {
-        x = x + xa;
+        x += xa;
         //y = y + ya;
     }
 
     public void paint(Graphics2D g) {
         g.fillRect(x, y, width,height);
     }
+
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             xa = -2;
@@ -35,6 +36,7 @@ public class Player {
             ya = 2;
         }
     }
+
     public void keyReleased(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             xa = 0;

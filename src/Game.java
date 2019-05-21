@@ -5,10 +5,12 @@ import javax.swing.*;
 public class Game extends JPanel {
     public static Ball myBall;
     public static Player myPlayer;
+    public static int myLives;
 
-    public Game(Ball ball, Player player) {
+    public Game(Ball ball, Player player, int lives) {
         myBall = ball;
         myPlayer = player;
+        // myLives = lives;
 
         addKeyListener(new KeyListener() {
             @Override
@@ -26,10 +28,11 @@ public class Game extends JPanel {
         });
         setFocusable(true);
     }
-    public void move(){
+    public void move() {
         myPlayer.move();
         myBall.move();
     }
+
     public void paint(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
@@ -38,4 +41,11 @@ public class Game extends JPanel {
         myPlayer.paint(g2d);
         myBall.paint(g2d);
     }
+
+    /*public void countLives(){
+        myLives--;
+        if (myLives == 0) {
+            System.exit(0);
+        }
+    }*/
 }
