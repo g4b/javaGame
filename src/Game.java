@@ -5,11 +5,13 @@ import javax.swing.*;
 public class Game extends JPanel {
     public static Ball myBall;
     public static Player myPlayer;
+    public static Opponent myOppo;
     public static int myLives;
 
-    public Game(Ball ball, Player player, int lives) {
+    public Game (Ball ball, Player player, Opponent opponent /*int lives*/) {
         myBall = ball;
         myPlayer = player;
+        myOppo = opponent;
         // myLives = lives;
 
         addKeyListener(new KeyListener() {
@@ -19,17 +21,20 @@ public class Game extends JPanel {
             @Override
             public void keyReleased(KeyEvent e) {
                 myPlayer.keyReleased(e);
+                myOppo.keyReleased(e);
             }
 
             @Override
             public void keyPressed(KeyEvent e) {
                 myPlayer.keyPressed(e);
+                myOppo.keyPressed(e);
             }
         });
         setFocusable(true);
     }
     public void move() {
         myPlayer.move();
+        myOppo.move();
         myBall.move();
     }
 
@@ -39,6 +44,7 @@ public class Game extends JPanel {
                 RenderingHints.VALUE_ANTIALIAS_ON);
         g2d.setColor(Color.BLACK);
         myPlayer.paint(g2d);
+        myOppo.paint(g2d);
         myBall.paint(g2d);
     }
 

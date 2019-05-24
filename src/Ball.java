@@ -8,9 +8,11 @@ public class Ball {
     int xa = 2;
     int ya = 2;
     private Player myPlayer;
+    private Opponent myOppo;
 
-    public Ball(Player player) {
+    public Ball(Player player, Opponent opponent) {
         myPlayer = player;
+        myOppo = opponent;
     }
 
     public void paint(Graphics2D g) {
@@ -19,18 +21,19 @@ public class Ball {
 
     public void move() {
         checkCollisions();
-        x = x + xa;
-        y = y + ya;
+        x += xa;
+        y += ya;
     }
 
     public void checkCollisions(){
+        Rectangle colRect = new Rectangle(x,y,20,20);
         if(x == 680 || x == 0){
             xa = -xa;
         }
         if(y == 0){
             ya = -ya;
         }
-        if(new Rectangle(x,y,20,20).intersects(myPlayer.getRectangle())){
+        if(colRect.intersects(myPlayer.getRectangle()) || colRect.intersects(myOppo.getRectangle())){
             ya = -ya;
         }
         if(y == 690){

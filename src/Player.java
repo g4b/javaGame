@@ -4,18 +4,18 @@ import java.awt.Rectangle;
 
 public class Player {
     int x = 250;
-    int y = 600;
+    int y;
     int xa = 0;
     int ya = 0;
     int width = 100;
     int height = 20;
 
-    public Player() {
+    public Player(int y){
+        this.y = y;
     }
 
     public void move() {
         x += xa;
-        //y = y + ya;
     }
 
     public void paint(Graphics2D g) {
