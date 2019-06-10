@@ -8,7 +8,8 @@ public class Player {
     int xa = 0;
     int ya = 0;
     int width = 100;
-    int height = 20;
+    int height = 15;
+    int lives = 5; // the lives are still counting down as the game is played, but I couldn't figure out how to display it
 
     public Player(int y){
         this.y = y;
@@ -24,16 +25,16 @@ public class Player {
 
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            xa = -2;
+            xa = -3;
         }
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            xa = 2;
+            xa = 3;
         }
         if (e.getKeyCode() == KeyEvent.VK_UP) {
-            ya = -2;
+            ya = -3;
         }
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            ya = 2;
+            ya = 3;
         }
     }
 
@@ -52,8 +53,7 @@ public class Player {
         }
     }
 
-    public Rectangle getRectangle(){
+    public Rectangle getRectangle() {
         return new Rectangle(x,y,width,height);
     }
-
 }

@@ -31,14 +31,23 @@ public class Ball {
             xa = -xa;
         }
         if(y == 0){
-            ya = -ya;
+            if (myOppo.lives == 0){
+                System.exit(0);
+            } else {
+                myOppo.lives--;
+                ya = -ya;
+            }
         }
         if(colRect.intersects(myPlayer.getRectangle()) || colRect.intersects(myOppo.getRectangle())){
             ya = -ya;
         }
-        if(y == 690){
-            System.exit(0);
+        if(y == 680){
+            if (myPlayer.lives == 0){
+                System.exit(0);
+            } else {
+                myPlayer.lives--;
+                ya = -ya;
+            }
         }
     }
-
 }

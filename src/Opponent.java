@@ -2,22 +2,22 @@ import java.awt.event.*;
 
 public class Opponent extends Player {
 
-    public Opponent(int y){
+    public Opponent(int y) {
         super(y);
     }
 
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_A) {
-            xa = -2;
+            xa = -3;
         }
         if (e.getKeyCode() == KeyEvent.VK_D) {
-            xa = 2;
+            xa = 3;
         }
         if (e.getKeyCode() == KeyEvent.VK_W) {
-            ya = -2;
+            ya = -3;
         }
         if (e.getKeyCode() == KeyEvent.VK_S) {
-            ya = 2;
+            ya = 3;
         }
     }
 
